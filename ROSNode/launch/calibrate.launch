@@ -1,0 +1,8 @@
+<launch>
+	<env name="ROS_IP" value="10.12.12.60"/>
+
+	<node pkg="image_transport" type="republish" name="image_converter" args="compressed in:=/camera/image out:=/camera/image_raw" />
+
+	<ndoe pkg="camera_calibrate" type="cameracalibrator.py" name="calibrator" args="--size 7x5 --square 0.03 image:=/camera/image_raw camera:=/camera --no-service-check" />
+
+</launch>

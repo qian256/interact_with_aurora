@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="960dp"
+    android:layout_height="540dp"
+    android:orientation="horizontal"
+    android:id="@+id/main_layout">
+
+    <FrameLayout
+        android:layout_width="640dp"
+        android:layout_height="480dp"
+        android:id="@+id/overlay_layout">
+
+
+        <org.ros.android.view.camera.RosCameraPreviewView
+            android:id="@+id/ros_camera_preview_view"
+            android:layout_width="640dp"
+            android:layout_height="480dp" />
+
+        <view
+            android:layout_width="640dp"
+            android:layout_height="480dp"
+            class="org.ros.android.view.RosImageView"
+            android:id="@+id/ros_image_view" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="320dp"
+        android:layout_height="480dp"
+        android:id="@+id/assist_layout">
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/switch_camera_button_text"
+            android:id="@+id/switch_camera_button"
+            android:layout_margin="20dp"
+            android:contentDescription="@string/switch_camera_button_text" />
+
+        <org.ros.android.view.RosTextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/ros_text_view"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+
+</LinearLayout>

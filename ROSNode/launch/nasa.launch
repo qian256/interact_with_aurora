@@ -1,0 +1,17 @@
+<launch>
+	<env name="ROS_IP" value="192.168.1.109"/>
+
+	<node pkg="image_transport" type="republish" name="image_converter" args="compressed in:=/camera/image out:=/image_raw" />
+	
+	<node pkg="image_view" type="image_view" name="image_viewer" args="image:=/image_raw" />
+
+	<node pkg="smart_ar" type="ros_aruco" name="aruco"  output="screen" />
+	<!-- <node pkg="moverio" type="image_echoer.py" name="image_echoer" output="screen" /> -->
+
+	<node pkg="smart_ar" type="cam_info_updator.py" name="calibration_updator" />
+
+	<node pkg="smart_ar" type="controller.py" name="controller" />
+
+<!-- 	<node pkg="my_mapping" type="convertCoord_node" name="convertCoord_node"  output="screen" /> -->
+
+</launch>
